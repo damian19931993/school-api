@@ -1,0 +1,75 @@
+### Test createUser - Caso Exitoso
+
+POST http://localhost:8080/api/v1/users
+Content-Type: application/json
+
+{
+  "email": "juan.perez@example.com",
+  "password": "Password123!",
+  "firstName": "Juan",
+  "lastName": "Pérez",
+  "roleName": "ROLE_STUDENT"
+}
+
+###
+
+### Test createUser - Usuario Profesor
+
+POST http://localhost:8080/api/v1/users
+Content-Type: application/json
+
+{
+  "email": "maria.garcia@example.com",
+  "password": "SecurePass456!",
+  "firstName": "María",
+  "lastName": "García",
+  "roleName": "ROLE_TEACHER"
+}
+
+###
+
+### Test createUser - Email Duplicado (Error 409)
+
+POST http://localhost:8080/api/v1/users
+Content-Type: application/json
+
+{
+  "email": "juan.perez@example.com",
+  "password": "OtherPassword789!",
+  "firstName": "Otro",
+  "lastName": "Usuario",
+  "roleName": "ROLE_STUDENT"
+}
+
+###
+
+### Test createUser - Rol Inexistente (Error 404)
+
+POST http://localhost:8080/api/v1/users
+Content-Type: application/json
+
+{
+  "email": "pedro.lopez@example.com",
+  "password": "Password123!",
+  "firstName": "Pedro",
+  "lastName": "López",
+  "roleName": "ROLE_INVALID"
+}
+
+###
+
+### Test createUser - Admin
+
+POST http://localhost:8080/api/v1/users
+Content-Type: application/json
+
+{
+  "email": "admin@example.com",
+  "password": "AdminPass123!",
+  "firstName": "Admin",
+  "lastName": "System",
+  "roleName": "ROLE_ADMIN"
+}
+
+###
+
